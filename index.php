@@ -8,10 +8,12 @@
   </head>
   <body>
     <p>Please enter a user or list name to load</p>
-<!-    <form action="select_list.php">
-    <form>
-    List name: <input type="text" name="listname"><br>
-    <input type="submit" value="Submit">
+    <form action="select_list.php">
+      <fieldset>
+        <legend>List / User Information</legend>
+        <br>List name: <input type="text" name="listname"><br><br>
+        <input type="submit" value="Submit">
+      </fieldset>
     </form>
   </body>
 </html>
