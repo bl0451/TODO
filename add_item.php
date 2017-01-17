@@ -2,21 +2,20 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <title>TODO List Delete Item</title>
+    <title>TODO List Add Item</title>
     <meta http-equiv="content-type"
     content="text/html; charset=utf-8"/>
     <?php $list_name=$_GET['name'];?>
-  </head>
-  <body>
-    <?php $username="Greg";$password="Orion23belt";?>
-    <?php $con = mysqli_connect("localhost",$username,$password) or die("Connection Problem" . mysqli_errno($con));
-    $database_name="todo_list";
-    $database = mysqli_select_db($con,$database_name) or die("SQL Problem" . mysqli_error($con));
-
-    echo $query="DELETE FROM list_items_table WHERE item_id = " . $_GET["id"];
-    mysqli_close($con);?>
-    <p>The list item was deleted.</p><br>
-    <?php $addr="location.href='select_list.php?name=" . $list_name . "'";?>
-    <?php echo '<input type="button" value="Return" onClick="' . $addr . '">';?>
-   </body>
+  </head>
+  <body onload="document.itemform.desc.focus()">
+    <p>Please enter a new list item to create</p>
+    <?php echo '<form action="add_item2.php?name=' . $list_name . '" method="get" name="itemform">';?>
+      <fieldset>
+        <legend>List Item Description</legend>
+        <br>Item description: <input type="text" name="desc" id="1" autofocus><br><br>
+        <?php echo '<br><input type="hidden" name="name" value="' . $list_name . '">';?>
+        <input type="submit" value="Submit">
+      </fieldset>
+    </form>
+  </body>
 </html>

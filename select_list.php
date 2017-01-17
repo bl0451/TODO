@@ -65,8 +65,9 @@
         <td><input type='button' value='Delete' id='$field1_value' onclick='getConfirmDelete($field1_value);'></td>
         </tr>";$i++;}
         $index_page = '"index.php"';
+        $add_page = '"add_item.php?name=' . $list_name . '"';
         echo "</table>",
-          "<br><br><input type='button' value='Add Item to List'><br><br><input type='button' value='Pick Another List' onclick='window.location.assign(" . $index_page . ")'>";
+          "<br><br><input type='button' value='Add Item to List' onclick='window.location.assign(" . $add_page . ")'><br><br><input type='button' value='Pick Another List' onclick='window.location.assign(" . $index_page . ")'>";
       }
       else echo "There is no list by the name of " . $list_name . ", click the button to create it or hit your back button to try again.<br><br>",
             "<button onclick='getNewList()'>Generate a New List</button>";
