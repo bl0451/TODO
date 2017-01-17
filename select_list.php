@@ -44,7 +44,7 @@
       $database_name="todo_list";
       $database = mysqli_select_db($con,$database_name) or die("SQL Problem" . mysqli_error($con));
 
-      $query="SELECT list_id FROM list_table WHERE list_name = '" . $list_name . "\n' limit 1";$result=mysqli_query($con,$query);
+      $query="SELECT list_id FROM list_table WHERE list_name = '" . $list_name . "' limit 1";$result=mysqli_query($con,$query);
       $list_num=mysqli_fetch_object($result);
       if($list_num){
         echo "<caption>TODO List Contents for: $list_name</caption>";
@@ -64,8 +64,9 @@
         <td>$field2_value</td>
         <td><input type='button' value='Delete' id='$field1_value' onclick='getConfirmDelete($field1_value);'></td>
         </tr>";$i++;}
+        $index_page = '"index.php"';
         echo "</table>",
-          "<br><br><input type='button' value='Add Item'>";
+          "<br><br><input type='button' value='Add Item to List'><br><br><input type='button' value='Pick Another List' onclick='window.location.assign(" . $index_page . ")'>";
       }
       else echo "There is no list by the name of " . $list_name . ", click the button to create it or hit your back button to try again.<br><br>",
             "<button onclick='getNewList()'>Generate a New List</button>";
