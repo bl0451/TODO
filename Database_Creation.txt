@@ -1,0 +1,20 @@
+CREATE DATABASE `todo_list` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+CREATE TABLE `list_items_table` (
+  `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `item_desc` varchar(45) NOT NULL,
+  `list_id` int(11) NOT NULL,
+  `item_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`item_id`),
+  UNIQUE KEY `item_id_UNIQUE` (`item_id`),
+  KEY `list_id` (`list_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `list_table` (
+  `list_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `list_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`list_id`),
+  UNIQUE KEY `list_id_UNIQUE` (`list_id`),
+  UNIQUE KEY `list_name_UNIQUE` (`list_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
